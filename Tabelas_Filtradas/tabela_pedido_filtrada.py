@@ -1,7 +1,8 @@
 import pandas as pd
-df = pd.read_csv('Tabelas_Análise_E-commerce/Olist_Order/olist_orders_dataset.csv')
 
-Tabela_Pedido = df[
+tabela_pedidos = pd.read_csv('Tabelas/Tabela_Pedido.csv', sep= ';')
+
+tabela_pedidos = tabela_pedidos[
     [
         'order_id',
         'customer_id',
@@ -12,9 +13,7 @@ Tabela_Pedido = df[
     ]
 ]
 
-print(Tabela_Pedido.head(10))
-
-Tabela_Pedido.to_csv(
+tabela_pedidos.to_csv(
     'Tabela_Pedido.csv',
     index= False,
     sep= ';'
