@@ -1,0 +1,9 @@
+# Ignora os CSV dentro de raw e interim
+data/raw/*.csv
+data/interim/*.csv
+
+# Pasta específica criada após baixar dataset
+data/raw/.complete
+
+# Todas as pastas de imports
+**/__pycache__/
