@@ -1,10 +1,8 @@
 # src/extract/download_dataset
-
-from pathlib import Path
+from config import RAW
 import kagglehub    # python3 -m pip install kagglehub pandas
 
 DATASET = "olistbr/brazilian-ecommerce"
-RAW = Path("data/raw")
 
 # faz download do dataset e carrega na pasta raw
 def download_dataset():

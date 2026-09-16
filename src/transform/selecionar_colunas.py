@@ -1,9 +1,6 @@
 # src/transform/selecionar_colunas.py
+from config import RAW, INTERIM
 import pandas as pd
-from pathlib import Path
-
-RAW = Path("data/raw")
-INTERIM = Path("data/interim")
 
 # seleção das colunas
 TABELAS = {
