@@ -171,3 +171,76 @@ exemplos = avaliacao[
 
 print("EXEMPLOS DE PEDIDOS COM NOTAS DIFERENTES:")
 print(exemplos.sort_values("order_id").to_string(index=False))
+
+
+
+
+
+
+# %%
+#CONVERSÃO PARA DATETIME
+itens["shipping_limit_date"] = pd.to_datetime(itens["shipping_limit_date"])
+
+# %%
+#CONVERSÃO DE PREÇO E FRETE PARA NUMÉRICO
+itens['price'] = pd.to_numeric(itens['price'], errors='coerce')
+itens['freight_value'] = pd.to_numeric(itens['freight_value'], errors='coerce')
+
+# %%
+#REMOVE LINHAS DUPLICADAS
+print(f"Duplicatas antes: {itens.duplicated().sum()}")
+itens = itens.drop_duplicates()
+
+# %%
+#REMOVE LINHAS ONDE PREÇO OU FRETE SÃO NULOS
+print("Nulos por coluna antes do tratamento:")
+print(itens.isnull().sum())
+itens = itens.dropna(subset=['price', 'freight_value'])
+
+# %%
+#CRIA COLUNA DE VALOR TOTAL
+itens['total_value'] = itens['price'] + itens['freight_value']
+
+# %%
+#EXIBE ESTATISTICAS
+itens.describe()
+
+
+
+
+
+# %%
+#CONVERTE DIMENSÕES E PESO DO PRODUTO PARA NUMÉRICO
+colunas_medidas = ['product_weight_g', 'product_length_cm', 'product_height_cm', 'product_width_cm']
+
+for col in colunas_medidas:
+    produtos[col] = pd.to_numeric(produtos[col], errors='coerce')
+
+# %%
+#VERIFICA SE A CONVERSÃO FUNCIONOU
+produtos.dtypes
+
+# %%
+#PREENCHE PRODUTOS SEM CATEGORIA COM O TEXTO 'nao_definido'
+produtos['product_category_name'] = produtos['product_category_name'].fillna('nao_definido')
+
+
+# %%
+#CHECA NULOS
+produtos.isnull().sum()
+
+# %%
+#CHECA IDS DUPLICADOS
+produtos['product_id'].duplicated().sum()
+
+# %%
+#EXIBE ESTATISTICAS DESCRITIVA DAS MEDIDAS DOS PRODUTOS
+produtos[colunas_medidas].describe()
+
+# %%
+#EXIBE O TOTAL DE CATEGORIAS UNICAS
+produtos['product_category_name'].nunique()
+
+# %%
+#EXIBE AS 10 CATEGORIAS MAIS FREQUENTES
+produtos['product_category_name'].value_counts().head(10)
