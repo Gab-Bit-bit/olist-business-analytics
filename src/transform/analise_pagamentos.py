@@ -144,7 +144,8 @@ print(pagamentos_tratados.dtypes)
 
 Resumo:
 
-A tabela de pagamentos apresentou 103.886 registros, 
+A tabela de pagamentos apresentou 103.886 registros,
+referentes a 99.440 pedidos distintos,
 sem valores nulos ou duplicatas completas na base original. 
 Foram identificados 9 pagamentos com valor zero, 
 2 registros de cartão de crédito com zero parcelas e 

@@ -142,8 +142,11 @@ print(
 
 Resumo:
 
-A tabela de avaliações apresentou 99.224 registros, 
-sem valores nulos e com todas as notas entre 1 e 5. 
+A tabela de avaliações apresentou 99.224 registros,
+referentes a 98.673 pedidos distintos,
+sem valores nulos e com todas as notas entre 1 e 5.
+As notas se concentram nos valores altos:
+57,8% das avaliações têm nota 5 e 11,5% têm nota 1, com média de 4,09.
 Foram identificados 547 pedidos com múltiplas avaliações: 
 345 com notas iguais e 202 com notas diferentes. 
 Também foram encontradas 349 repetições da combinação de pedido e 
