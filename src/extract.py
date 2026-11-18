@@ -3,7 +3,7 @@ from pathlib import Path
 
 # definindo a rota para acessar a pasta /data
 PASTA_RAIZ = Path(__file__).resolve().parent.parent
-PASTA_DATA = PASTA_RAIZ / "data"
+PASTA_DATA = PASTA_RAIZ / "data" / "raw"
 
 # função para carregar tabela
 def carregar_tabela(nome_arquivo):
